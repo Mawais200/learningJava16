@@ -1,38 +1,32 @@
-class Node {
-    int data;
-    Node next;
-
-    Node(int data) {
-        this.data = data;
-        this.next = null;
-    }
-}
+import java.lang.reflect.Method;
 
 public class Reverselink {
-    public static Node reverseLinkedList(Node head) {
-        Node prev = null;
-        Node current = head;
-        Node next = null;
 
-        while (current != null) {
-            next = current.next; // Store the next node
-            current.next = prev; // Reverse the link
-            prev = current;      // Move prev to current
-            current = next;      // Move current to next
+
+    Method to reverse the linked list:
+    java
+        public static Node reverseLinkedList(Node head) {
+            Node prev = null;              // To keep track of the previous node
+            Node current = head;          // Start from head node
+            Node next = null;             // To store next node temporarily
+    
+            while (current != null) {
+                next = current.next;      // Store next node
+                current.next = prev;      // Reverse the link
+                prev = current;           // Move prev one step ahead
+                current = next;           // Move current one step ahead
+            }
+    
+            return prev; // New head after reversal
         }
-
-        return prev; // New head of the reversed list
+temp = temp.next;                 // Move to next node
+        }
+        System.out.println(); // Print new line after printing list
     }
 
-    public static void printList(Node head) {
-        Node temp = head;
-        while (temp != null) {
-            System.out.print(temp.data + " ");
-            temp = temp.next;
-        }
-        System.out.println();
-    }
 
+*Main method to test:*
+java
     public static void main(String[] args) {
         Node head = new Node(1);
         head.next = new Node(2);
@@ -40,11 +34,12 @@ public class Reverselink {
         head.next.next.next = new Node(4);
 
         System.out.println("Original Linked List:");
-        printList(head);
+        printList(head); // Output: 1 2 3 4
 
-        head = reverseLinkedList(head);
+        head = reverseLinkedList(head); // Reverse the list
 
         System.out.println("Reversed Linked List:");
-        printList(head);
+        printList(head); // Output: 4 3 2 1
     }
 }
+    
