@@ -1,32 +1,31 @@
-import java.lang.reflect.Method;
-
 public class Reverselink {
 
+    // Method to reverse the linked list
+    public static Node reverseLinkedList(Node head) {
+        Node prev = null;              // To keep track of the previous node
+        Node current = head;          // Start from head node
+        Node next = null;             // To store next node temporarily
 
-    Method to reverse the linked list:
-    java
-        public static Node reverseLinkedList(Node head) {
-            Node prev = null;              // To keep track of the previous node
-            Node current = head;          // Start from head node
-            Node next = null;             // To store next node temporarily
-    
-            while (current != null) {
-                next = current.next;      // Store next node
-                current.next = prev;      // Reverse the link
-                prev = current;           // Move prev one step ahead
-                current = next;           // Move current one step ahead
-            }
-    
-            return prev; // New head after reversal
+        while (current != null) {
+            next = current.next;      // Store next node
+            current.next = prev;      // Reverse the link
+            prev = current;           // Move prev one step ahead
+            current = next;           // Move current one step ahead
         }
-temp = temp.next;                 // Move to next node
+
+        return prev; // New head after reversal
+    }
+
+    // Method to print the linked list
+    public static void printList(Node head) {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data + " "); // Print current node's data
+            temp = temp.next;                 // Move to next node
         }
         System.out.println(); // Print new line after printing list
     }
 
-
-
-java
     public static void main(String[] args) {
         Node head = new Node(1);
         head.next = new Node(2);
@@ -40,6 +39,17 @@ java
 
         System.out.println("Reversed Linked List:");
         printList(head); // Output: 4 3 2 1
+    }
+}
+
+// Definition for the Node class
+class Node {
+    int data;
+    Node next;
+
+    Node(int data) {
+        this.data = data;
+        this.next = null;
     }
 }
     
