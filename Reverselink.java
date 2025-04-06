@@ -25,7 +25,7 @@ temp = temp.next;                 // Move to next node
     }
 
 
-*Main method to test:*
+
 java
     public static void main(String[] args) {
         Node head = new Node(1);
